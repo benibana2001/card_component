@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Cards />
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
@@ -41,12 +42,15 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
+import Cards from "./components/Cards";
+// import Card from "./components/Card";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld
+    HelloWorld,
+    Cards
   },
 
   data: () => ({

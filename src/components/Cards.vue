@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// import { mapState } from "vuex";
 import Card from "./Card";
 
 export default {

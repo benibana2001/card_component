@@ -1,8 +1,6 @@
 <template>
   <div class="cards">
-    <Card v-bind:value="1"></Card>
-    <Card v-bind:value="3"></Card>
-    <Card v-bind:value="5"></Card>
+    <Card v-for="hand in hands" :key="hand.index" :value="hand" />
   </div>
 </template>
 
@@ -14,7 +12,9 @@ export default {
     Card
   },
   data() {
-    return {};
+    return {
+      hands: [1, 3, 5]
+    };
   }
 };
 </script>

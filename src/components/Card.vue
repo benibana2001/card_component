@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="choice(value)">
     {{ value }}
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    choice: function(event) {
+      console.log(event);
+    }
   }
 };
 </script>
@@ -23,7 +28,8 @@ export default {
   width: 100px;
   height: 160px;
   background: #eeeeee;
-  border-radius: 4px;
+  border-radius: 6px;
   color: #494949;
+  margin-right: 2px;
 }
 </style>

@@ -1,27 +1,29 @@
 <template>
   <div class="card">
-    <ul>
-      <li>
-        {{ message }}
-      </li>
-      <li>
-        {{ itemName }}
-      </li>
-    </ul>
+    {{ value }}
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    itemName: {
-      type: String
+    value: {
+      type: Number,
+      required: true
     }
   },
   data() {
-    return {
-      message: "a"
-    };
+    return {};
   }
 };
 </script>
+
+<style scoped>
+.card {
+  width: 100px;
+  height: 160px;
+  background: #eeeeee;
+  border-radius: 4px;
+  color: #494949;
+}
+</style>

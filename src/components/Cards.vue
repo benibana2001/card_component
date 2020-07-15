@@ -1,6 +1,8 @@
 <template>
   <div class="cards">
-    <Card v-bind:itemName="abc"></Card>
+    <Card v-bind:value="1"></Card>
+    <Card v-bind:value="3"></Card>
+    <Card v-bind:value="5"></Card>
   </div>
 </template>
 
@@ -12,9 +14,13 @@ export default {
     Card
   },
   data() {
-    return {
-      abc: "123"
-    };
+    return {};
   }
 };
 </script>
+
+<style scoped>
+.cards {
+  display: flex;
+}
+</style>

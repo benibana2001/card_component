@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <Card v-for="hand in hands" :key="hand.index" :value="hand" />
+    <Card v-for="(hand, i) in hands" :key="i" :value="hand" :index="i" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      hands: [1, 3, 5]
+      hands: [1, 2, 3, 5, 8, 13, 21, 34, 45]
     };
   }
 };

@@ -1,9 +1,15 @@
 <template>
-  <div class="card" :style="styleIndex(index)" @click="choice(value)">
-    {{ value }}
-  </div>
+  <transition name="fade">
+    <div
+      class="card"
+      :style="styleIndex(index)"
+      @click="choice(value)"
+      v-if="show"
+    >
+      {{ value }}
+    </div>
+  </transition>
 </template>
-
 <script>
 export default {
   props: {
@@ -17,7 +23,9 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      show: true
+    };
   },
 
   computed: {},
@@ -25,6 +33,7 @@ export default {
   methods: {
     choice: function(event) {
       console.log(event);
+      this.show = !this.show;
     },
 
     hoverCard: function(value) {
@@ -59,5 +68,15 @@ export default {
   margin-top: -40px;
   color: green;
   z-index: 100;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

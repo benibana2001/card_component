@@ -13,42 +13,7 @@
 </template>
 
 <script>
-const axios = require("axios");
-const url = "http://localhost:3000/player";
-
-const fetchApi = async () => {
-  const successFunc = res => {
-    console.log(res.data);
-  };
-
-  const errorFunc = err => {
-    console.log(err);
-  };
-
-  await axios
-    .get(url)
-    .then(successFunc)
-    .catch(errorFunc);
-};
-
-const postApi = async point => {
-  const successFunc = res => {
-    console.log(res.data);
-  };
-
-  const errorFunc = err => {
-    console.log(err);
-  };
-  axios
-    .post(url, {
-      name: "Tanaka Taichi",
-      age: 24,
-      connecting: true,
-      point: point
-    })
-    .then(successFunc)
-    .catch(errorFunc);
-};
+import * as connectApi from "../api";
 
 export default {
   nama: "ButtonFetch",
@@ -62,14 +27,14 @@ export default {
   methods: {
     async clickFetch() {
       console.log("clickFetch!");
-      await fetchApi();
+      await connectApi.fetchApi();
     },
 
     async clickPost() {
       console.log("clickPost!");
       const point = parseInt(this.point);
       console.log(point);
-      await postApi(point);
+      await connectApi.postApi(point);
     }
   }
 };

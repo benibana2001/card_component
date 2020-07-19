@@ -1,5 +1,5 @@
 const axios = require("axios");
-const url = "http://localhost:3000/player";
+const url = process.env.VUE_APP_HOST + "/player";
 
 export const fetchApi = async () => {
   const successFunc = res => {

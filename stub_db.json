@@ -1,9 +1,25 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" },
+  "player": {
+    "name": "Tanaka Taichi",
+    "age": 24,
+    "connecting": true,
+    "point": 8
+  },
+  "users": [
+    {
+      "name": "Tanaka Taro",
+      "age": 22,
+      "connecting": true,
+      "point": 13
+    },
+    {
+      "name": "Yamada Yaeko",
+      "age": 29,
+      "connecting": false,
+      "point": 3
+    }
+  ]
 }

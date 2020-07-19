@@ -6,7 +6,7 @@
 
 <script>
 const axios = require("axios");
-const url = "http://localhost:3000/posts";
+const url = "http://localhost:3000/player";
 
 const fetchApi = async () =>
   await axios
@@ -15,7 +15,7 @@ const fetchApi = async () =>
     .catch(errorFunc);
 
 const successFunc = res => {
-  console.log(res);
+  console.log(res.data);
 };
 
 const errorFunc = err => {

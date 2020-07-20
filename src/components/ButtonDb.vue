@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import * as connectApi from "../api";
+import * as connectApi from "../api/db";
 
 export default {
-  nama: "ButtonFetch",
+  name: "ButtonDb",
 
   data() {
     return {
@@ -26,14 +26,11 @@ export default {
 
   methods: {
     async clickFetch() {
-      console.log("clickFetch!");
       await connectApi.fetchApi();
     },
 
     async clickPost() {
-      console.log("clickPost!");
       const point = parseInt(this.point);
-      console.log(point);
       await connectApi.postApi(point);
     }
   }

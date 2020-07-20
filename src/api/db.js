@@ -16,6 +16,10 @@ export const fetchApi = async () => {
     .catch(errorFunc);
 };
 
+export const polling = (apiFunc, millisecond) => {
+  return setInterval(apiFunc, millisecond);
+};
+
 export const postApi = async point => {
   const successFunc = res => {
     console.log(res.data);

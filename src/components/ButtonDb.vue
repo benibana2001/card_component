@@ -9,6 +9,16 @@
     </button>
 
     <input type="text" placeholder="ポイントを入力してポスト" v-model="point" />
+
+    <br />
+
+    <button class="buttonPolling" @click="clickPolling">
+      polling
+    </button>
+
+    <button class="buttonStopPolling" @click="clickStopPolling">
+      stop-polling
+    </button>
   </div>
 </template>
 
@@ -20,7 +30,8 @@ export default {
 
   data() {
     return {
-      point: 0
+      point: 0,
+      intervalId: ""
     };
   },
 
@@ -32,6 +43,16 @@ export default {
     async clickPost() {
       const point = parseInt(this.point);
       await connectApi.postApi(point);
+    },
+
+    async clickPolling() {
+      const func = connectApi.fetchApi;
+      const span = 500;
+      this.intervalId = connectApi.polling(func, span);
+    },
+
+    async clickStopPolling() {
+      clearInterval(this.intervalId);
     }
   }
 };

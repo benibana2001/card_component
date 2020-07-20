@@ -13,12 +13,7 @@
 <script>
 import { cardMixin } from "../mixins/cardMixin";
 export default {
-  mixins: [cardMixin],
-  methods: {
-    hoverCard: function(value) {
-      console.log(value);
-    }
-  }
+  mixins: [cardMixin]
 };
 </script>
 
@@ -37,21 +32,5 @@ export default {
 
   transition-property: margin, color, z-index;
   transition-duration: 0.5s;
-}
-
-.card:hover {
-  margin-top: -40px;
-  color: green;
-  z-index: 100;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

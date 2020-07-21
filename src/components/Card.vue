@@ -1,45 +1,49 @@
 <template>
   <transition name="fade">
-    <div
-      class="card"
-      :style="styleIndex(index)"
-      @click="choice(value)"
-      v-if="show"
-    >
-      {{ value }}
+    <div class="wrapper" @click="choice(value)" v-if="show">
+      <CardBase :value="value" :index="index" />
     </div>
   </transition>
 </template>
 <script>
-import { cardMixin } from "../mixins/cardMixin";
+import CardBase from "./CardBase";
 export default {
-  mixins: [cardMixin],
+  components: {
+    CardBase
+  },
+
+  props: {
+    value: {
+      type: Number,
+      required: true
+    },
+    index: {
+      type: Number
+    }
+  },
+
+  data() {
+    return {
+      show: true
+    };
+  },
+
   methods: {
-    hoverCard: function(value) {
-      console.log(value);
+    choice: function(event) {
+      console.log(event);
+      this.show = !this.show;
     }
   }
 };
 </script>
 
 <style scoped>
-.card {
-  position: absolute;
-
-  width: 100px;
-  height: 160px;
-  background: #eeeeee;
-  border-radius: 6px;
-  color: #494949;
-  margin-right: 2px;
-
-  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.4));
-
+.wrapper {
   transition-property: margin, color, z-index;
   transition-duration: 0.5s;
 }
 
-.card:hover {
+.wrapper:hover {
   margin-top: -40px;
   color: green;
   z-index: 100;

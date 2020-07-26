@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="wrapper-inner">
-      <CardBase :value="value" :index="index" />
+      <CardBase class="front" :value="value" :index="index" />
+
+      <CardBase class="back" :value="999" :index="index" />
     </div>
   </div>
 </template>
@@ -39,30 +41,36 @@ export default {
 
 <style scoped>
 .wrapper {
-  /* transition-property: z-index, opacity; */
-  /* transition-duration: 0.2s; */
+  width: 100px;
+  height: 100%;
+  background-color: transparent;
+  perspective: 1000px;
 }
 
 .wrapper-inner {
-  width: 100px;
-  height: 100%;
+  position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
 .wrapper:hover .wrapper-inner {
   transform: rotateY(180deg);
-  /* z-index: 100; */
-  /* opacity: 0.5; */
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s;
+.front .back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.front {
+  background-color: #bbb;
+  color: black;
+}
+
+.back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
 }
 </style>

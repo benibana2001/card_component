@@ -11,7 +11,7 @@
     "json-server": "npx json-server --watch stub_db.json"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "store": "^2.0.12",
     "vue": "^2.6.11",
